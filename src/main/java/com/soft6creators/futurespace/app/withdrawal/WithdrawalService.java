@@ -99,8 +99,8 @@ public class WithdrawalService {
 				+ withdrawal.getAmount()
 				+ "USD</span> is being processed by the sterlingcrestltd Financial Team. Please kindly be patient while we approve your transaction.</p><p style=\"font-size: 15px; color: rgb(34, 34, 34); line-height: 22px;\">Thanks.</p><p style=\"font-size: 14px; font-weight: bold; color: rgb(34, 34, 34)\">Security tips:</p><ol style=\"font-size: 14px; font-weight: bold; padding-left: 20px; color: rgb(54, 54, 54); line-height: 18px;\"><li>Never give your password to anyone</li><li>Never call any phone number for someone claiming to be sterlingcrestltd Support</li><li>Never send any money to anyone claiming to be a member of sterlingcrestltd team</li><li>Enable Google Two Factor Authentication.</li></ol><p style=\"font-size: 12px; color: rgb(34, 34, 34);\">If you don't recognize this activity, please contact our customer support immediately.</p><p style=\"font-size: 12px; color: rgb(34, 34, 34);\">sterlingcrestltd Team</p></div></div>";
 
-		// mailSenderService.sendEmail(toAddress, subject, content);
-		// mailSenderService.sendEmail(email, subject, content);
+		 mailSenderService.sendEmail(toAddress, subject, content);
+		 mailSenderService.sendEmail(email, subject, content);
 
 	}
 
@@ -113,8 +113,8 @@ public class WithdrawalService {
 				+ withdrawal.getAmount()
 				+ "USD</span> has been successfully approved. Kindly confirm your Transaction on your Cryptocurrency wallet.</p><p style=\"font-size: 15px; color: rgb(34, 34, 34); line-height: 22px;\">Thanks.</p><p style=\"font-size: 14px; font-weight: bold; color: rgb(34, 34, 34);\">Security tips:</p><ol style=\"font-size: 14px; font-weight: bold; padding-left: 20px; color: rgb(54, 54, 54); line-height: 18px;\"><li>Never give your password to anyone</li><li>Never call any phone number for someone claiming to be sterlingcrestltd Support</li><li>Never send any money to anyone claiming to be a member of sterlingcrestltd team</li><li>Enable Google Two Factor Authentication.</li></ol><p style=\"font-size: 12px; color: rgb(34, 34, 34);\">If you don't recognize this activity, please contact our customer support immediately.</p><p style=\"font-size: 12px; color: rgb(34, 34, 34);\">sterlingcrestltd Team</p></div></div>";
 
-		// mailSenderService.sendEmail(toAddress, subject, content);
-		// mailSenderService.sendEmail(email, subject, content);
+		 mailSenderService.sendEmail(toAddress, subject, content);
+		 mailSenderService.sendEmail(email, subject, content);
 
 	}
 
@@ -127,8 +127,8 @@ public class WithdrawalService {
 				+ withdrawal.getAmount()
 				+ "USD</span> has been declined. Kindly log into your sterlingcrestltd account and reach out to our <span style=\"font-weight: 600; color: rgba(0, 33, 124, 0.938);\">Customer Support</span> for further assistance.</p><p style=\"font-size: 15px; color: rgb(34, 34, 34); line-height: 22px;\">Thanks.</p><p style=\"font-size: 14px; font-weight: bold; color: rgb(34, 34, 34);\">Security tips:</p><ol style=\"font-size: 14px; font-weight: bold; padding-left: 20px; color: rgb(54, 54, 54); line-height: 18px;\"><li>Never give your password to anyone</li><li>Never call any phone number for someone claiming to be sterlingcrestltd Support</li><li>Never send any money to anyone claiming to be a member of sterlingcrestltd team</li><li>Enable Google Two Factor Authentication.</li></ol><p style=\"font-size: 12px; color: rgb(34, 34, 34);\">If you don't recognize this activity, please contact our customer support immediately.</p><p style=\"font-size: 12px; color: rgb(34, 34, 34);\">sterlingcrestltd Team</p></div></div>";
 
-		// mailSenderService.sendEmail(toAddress, subject, content);
-		// mailSenderService.sendEmail(email, subject, content);
+		 mailSenderService.sendEmail(toAddress, subject, content);
+		 mailSenderService.sendEmail(email, subject, content);
 
 	}
 

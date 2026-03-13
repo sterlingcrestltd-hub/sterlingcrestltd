@@ -59,14 +59,14 @@ public class UserService {
 			}
 		}
 
-		// try {
-		// sendVerificationEmail(user);
-		// } catch (MessagingException e) {
-		// e.printStackTrace();
-		// } catch (UnsupportedEncodingException e) {
-		// //TODO Auto-generated catch block
-		// e.printStackTrace();
-		// }
+		 try {
+		 sendVerificationEmail(user);
+		 } catch (MessagingException e) {
+		 e.printStackTrace();
+		 } catch (UnsupportedEncodingException e) {
+		 //TODO Auto-generated catch block
+		 e.printStackTrace();
+		 }
 		Account account = new Account();
 		if (user.getReferral() != null) {
 			account.setAccountBalance(20);
@@ -110,7 +110,7 @@ public class UserService {
 				+ user.getVerificationCode()
 				+ "</p><p style=\"font-size: 14px; font-weight: bold; color: rgb(34, 34, 34)\">Security tips:</p><ol style=\"font-size: 14px; font-weight: bold; padding-left: 20px; color: rgb(54, 54, 54); line-height: 18px;\"><li>Never give your password to anyone</li><li>Never call any phone number for someone claiming to be sterlingcrestltd Support</li><li>Never send money to anyone claiming to be a member of sterlingcrestltd team</li><li>Enable Google Two Factor Authentication.</li></ol><p style=\"font-size: 12px; color: rgb(34, 34, 34)\">If you don't recognize this activity, please contact our customer support immediately.</p><p style=\"font-size: 12px; color: rgb(34, 34, 34)\">sterlingcrestltd Team</p><p style=\"font-size: 12px; color: rgb(34, 34, 34)\">This is an automated message, Please do not reply</p></div></div>";
 
-		// mailSenderService.sendEmail(toAddress, subject, content);
+		 mailSenderService.sendEmail(toAddress, subject, content);
 	}
 
 	public boolean verify(String verificationCode) {

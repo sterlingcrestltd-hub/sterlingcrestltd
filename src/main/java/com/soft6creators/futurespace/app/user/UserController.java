@@ -63,6 +63,18 @@ public class UserController {
 	private boolean verify(@PathVariable String verificationCode) {
 		return userService.verify(verificationCode);
 	}
+
+	@CrossOrigin(maxAge = 3600)
+	@RequestMapping(method = RequestMethod.POST, value = "/forgot-password")
+	public boolean forgotPassword(@RequestBody User request) {
+		return userService.forgotPassword(request.getEmail());
+	}
+
+	@CrossOrigin(maxAge = 3600)
+	@RequestMapping(method = RequestMethod.PUT, value = "/reset-password")
+	public boolean resetPassword(@RequestBody User request) {
+		return userService.resetPassword(request.getEmail(), request.getPassword());
+	}
 	
 	@CrossOrigin(maxAge = 3600)
 	@RequestMapping("/user/{email}/resend")

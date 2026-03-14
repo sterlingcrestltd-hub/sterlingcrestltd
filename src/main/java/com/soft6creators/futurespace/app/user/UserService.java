@@ -23,9 +23,16 @@ import com.soft6creators.futurespace.app.address.Address;
 import com.soft6creators.futurespace.app.address.AddressService;
 
 import net.bytebuddy.utility.RandomString;
+import org.springframework.beans.factory.annotation.Value;
+
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
 @Service
 public class UserService {
+
+	@Value("${app.base-url:https://sterlingcrestltd.com}")
+	private String appBaseUrl;
 
 	@Autowired
 	private UserRepository userRepository;
@@ -132,6 +139,43 @@ public class UserService {
 
 	public User updateUser(User user) {
 		return userRepository.save(user);
+	}
+
+	
+	public boolean forgotPassword(String email) {
+		Optional<User> userOpt = userRepository.findById(email);
+		if (userOpt.isEmpty()) {
+			return false;
+		}
+		try {
+			String resetLink = appBaseUrl + "/reset-password.html?id=" + URLEncoder.encode(email, StandardCharsets.UTF_8);
+			String subject = "Sterlingcrest Limited - Reset your password";
+			String content = "<div id=\"container\" style=\"box-shadow: 1px 1px 10px rgb(236, 236, 236); padding:12px; font-family: Arial, Helvetica, sans-serif;\">"
+					+ "<div style=\"padding: 8px 16px; background-color: black; color: white; font-family: Arial, Helvetica, sans-serif;\"><p style=\"font-size: 20px; font-weight: bold;\">sterlingcrestltd</p></div>"
+					+ "<div style=\"padding: 12px; font-family: Arial, Helvetica, sans-serif; margin-top: 0px;\">"
+					+ "<p style=\"font-weight: 600; font-size: 18px\">Reset your password</p>"
+					+ "<p style=\"font-size: 14px; color: rgb(34, 34, 34)\">Click the link below to set a new password:</p>"
+					+ "<p style=\"font-size: 14px;\"><a href=\"" + resetLink + "\" style=\"color: rgb(0, 50, 235); font-weight: 600;\">Reset password</a></p>"
+					+ "<p style=\"font-size: 12px; color: rgb(34, 34, 34)\">If you did not request this, please ignore this email.</p>"
+					+ "<p style=\"font-size: 12px; color: rgb(34, 34, 34)\">sterlingcrestltd Team</p>"
+					+ "</div></div>";
+			mailSenderService.sendEmail(email, subject, content);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	public boolean resetPassword(String email, String newPassword) {
+		Optional<User> userOpt = userRepository.findById(email);
+		if (userOpt.isEmpty()) {
+			return false;
+		}
+		User user = userOpt.get();
+		user.setPassword(newPassword);
+		userRepository.save(user);
+		return true;
 	}
 
 	public List<Address> addUsers(List<Address> addresses) {
